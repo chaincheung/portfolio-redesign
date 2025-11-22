@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 export const PortfolioExperiences = () => {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
   const [visibleCards, setVisibleCards] = useState([]);
   const sectionRef = useRef(null);
 

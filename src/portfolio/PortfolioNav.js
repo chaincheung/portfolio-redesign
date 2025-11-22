@@ -37,14 +37,6 @@ export const PortfolioNav = () => {
     setMenuOpen(false);
   }, [location]);
 
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setMenuOpen(false);
-    }
-  };
-
   const projects = [
     { name: "Yellowheart App", path: "/project/yellowheart-app" },
     { name: "RelationshipScience", path: "/project/relationshipscience-com" },
