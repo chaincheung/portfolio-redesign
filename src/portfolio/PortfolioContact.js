@@ -6,18 +6,49 @@ export const PortfolioContact = () => {
     email: "",
     message: "",
   });
+  const [feedbackMessage, setFeedbackMessage] = useState("");
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
+    // Clear feedback message when user types
+    if (feedbackMessage) setFeedbackMessage("");
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
+    
+    // Validate form
+    if (!formData.name || !formData.email || !formData.message) {
+      setFeedbackMessage("Please fill in all fields.");
+      return;
+    }
+
+    // Create mailto link with form data
+    const subject = encodeURIComponent(`Contact Form Submission from ${formData.name}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\n` +
+      `Email: ${formData.email}\n\n` +
+      `Message:\n${formData.message}`
+    );
+    const mailtoLink = `mailto:john.cheung75@gmail.com?subject=${subject}&body=${body}`;
+
+    // Open email client
+    try {
+      window.location.href = mailtoLink;
+      setFeedbackMessage("Your email client should open. Please click 'Send' to complete.");
+      
+      // Clear form after a short delay
+      setTimeout(() => {
+        setFormData({ name: "", email: "", message: "" });
+        setFeedbackMessage("");
+      }, 2000);
+    } catch (error) {
+      console.error("Failed to open email client:", error);
+      setFeedbackMessage("Failed to open your email client. Please contact me directly at john.cheung75@gmail.com");
+    }
   };
 
   return (
@@ -78,6 +109,19 @@ export const PortfolioContact = () => {
             <button type="submit" className="btn-primary">
               Send Message
             </button>
+            {feedbackMessage && (
+              <div className="form-feedback" style={{ 
+                marginTop: '1rem', 
+                padding: '1rem', 
+                backgroundColor: 'rgba(102, 126, 234, 0.1)', 
+                border: '1px solid rgba(102, 126, 234, 0.3)', 
+                borderRadius: '8px',
+                color: '#ffffff',
+                fontSize: '0.9rem'
+              }}>
+                {feedbackMessage}
+              </div>
+            )}
           </form>
         </div>
       </div>
