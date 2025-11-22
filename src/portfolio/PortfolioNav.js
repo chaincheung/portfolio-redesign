@@ -83,12 +83,10 @@ export const PortfolioNav = () => {
               <a 
                 href="mailto:john.cheung75@gmail.com"
                 className="nav-menu-link"
-                onClick={(e) => {
-                  // Don't prevent default - let href work naturally
-                  // Just close menu after a delay
-                  setTimeout(() => {
-                    setMenuOpen(false);
-                  }, 100);
+                onClick={() => {
+                  // Close menu after click
+                  setMenuOpen(false);
+                  // Let the href work naturally - browser will handle mailto
                 }}
               >
                 Contact Me
