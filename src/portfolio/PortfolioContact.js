@@ -35,19 +35,31 @@ export const PortfolioContact = () => {
     );
     const mailtoLink = `mailto:john.cheung75@gmail.com?subject=${subject}&body=${body}`;
 
-    // Open email client
+    // Try multiple methods to open email client (more reliable)
     try {
-      window.location.href = mailtoLink;
-      setFeedbackMessage("Your email client should open. Please click 'Send' to complete.");
+      // Method 1: Create and click a temporary anchor element (most reliable)
+      const link = document.createElement('a');
+      link.href = mailtoLink;
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
       
-      // Clear form after a short delay
+      // Method 2: Fallback to window.location.href
+      setTimeout(() => {
+        window.location.href = mailtoLink;
+      }, 100);
+      
+      setFeedbackMessage("Opening your email client... If it doesn't open, please contact me directly at john.cheung75@gmail.com");
+      
+      // Clear form after a longer delay to give email client time to open
       setTimeout(() => {
         setFormData({ name: "", email: "", message: "" });
         setFeedbackMessage("");
-      }, 2000);
+      }, 5000);
     } catch (error) {
       console.error("Failed to open email client:", error);
-      setFeedbackMessage("Failed to open your email client. Please contact me directly at john.cheung75@gmail.com");
+      setFeedbackMessage("Unable to open email client. Please contact me directly at john.cheung75@gmail.com");
     }
   };
 
@@ -62,13 +74,36 @@ export const PortfolioContact = () => {
               Whether you have a question or just want to say hi, I'll try my best to get back to you!
             </p>
             <div className="contact-links">
-              <a 
-                href="mailto:john.cheung75@gmail.com" 
+              <button 
                 className="contact-link"
+                style={{ 
+                  background: 'rgba(255, 255, 255, 0.03)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  borderRadius: '10px',
+                  cursor: 'pointer',
+                  width: '100%',
+                  textAlign: 'left',
+                  padding: '1rem',
+                  fontFamily: 'inherit',
+                  fontSize: 'inherit',
+                  color: '#ffffff'
+                }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  
+                  // Create and click mailto link programmatically
+                  const mailtoLink = 'mailto:john.cheung75@gmail.com';
+                  const link = document.createElement('a');
+                  link.href = mailtoLink;
+                  link.style.display = 'none';
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
               >
                 <span className="link-icon">✉</span>
                 <span>Contact Me</span>
-              </a>
+              </button>
               <a href="/John_Cheung_Resume.pdf" className="contact-link" target="_blank" rel="noopener noreferrer">
                 <span className="link-icon">📄</span>
                 <span>View Resume</span>
