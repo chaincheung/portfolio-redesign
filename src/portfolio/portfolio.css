@@ -214,6 +214,7 @@ html {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  filter: brightness(1.2);
 }
 
 .hero-background-overlay {
@@ -222,7 +223,7 @@ html {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.3);
   z-index: 1;
 }
 
@@ -296,7 +297,7 @@ html {
 .hero-greeting {
   font-size: 1.5rem;
   font-weight: 400;
-  color: #888;
+  color: #323232;
   margin: 0 0 1rem 0;
 }
 
@@ -316,7 +317,7 @@ html {
 
 .hero-description {
   font-size: 1.25rem;
-  color: #aaa;
+  color: #323232;
   margin: 0 0 2rem 0;
   line-height: 1.6;
 }
