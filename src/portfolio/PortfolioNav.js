@@ -80,36 +80,19 @@ export const PortfolioNav = () => {
               <Link to="/" className="nav-menu-link" onClick={() => setMenuOpen(false)}>
                 Home
               </Link>
-              <button 
-                className="nav-menu-link" 
-                style={{ 
-                  background: 'none', 
-                  border: 'none', 
-                  cursor: 'pointer',
-                  width: '100%',
-                  textAlign: 'left',
-                  padding: 0
-                }}
+              <a 
+                href="mailto:john.cheung75@gmail.com"
+                className="nav-menu-link"
                 onClick={(e) => {
-                  e.stopPropagation(); // Prevent menu close
-                  
-                  // Create and click mailto link programmatically
-                  const mailtoLink = 'mailto:john.cheung75@gmail.com';
-                  const link = document.createElement('a');
-                  link.href = mailtoLink;
-                  link.style.display = 'none';
-                  document.body.appendChild(link);
-                  link.click();
-                  document.body.removeChild(link);
-                  
-                  // Close menu after a delay
+                  // Don't prevent default - let href work naturally
+                  // Just close menu after a delay
                   setTimeout(() => {
                     setMenuOpen(false);
-                  }, 200);
+                  }, 100);
                 }}
               >
                 Contact Me
-              </button>
+              </a>
             </div>
             <div className="nav-menu-section">
               <div className="nav-menu-section-title">Work</div>

@@ -74,36 +74,13 @@ export const PortfolioContact = () => {
               Whether you have a question or just want to say hi, I'll try my best to get back to you!
             </p>
             <div className="contact-links">
-              <button 
+              <a 
+                href="mailto:john.cheung75@gmail.com"
                 className="contact-link"
-                style={{ 
-                  background: 'rgba(255, 255, 255, 0.03)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  borderRadius: '10px',
-                  cursor: 'pointer',
-                  width: '100%',
-                  textAlign: 'left',
-                  padding: '1rem',
-                  fontFamily: 'inherit',
-                  fontSize: 'inherit',
-                  color: '#ffffff'
-                }}
-                onClick={(e) => {
-                  e.preventDefault();
-                  
-                  // Create and click mailto link programmatically
-                  const mailtoLink = 'mailto:john.cheung75@gmail.com';
-                  const link = document.createElement('a');
-                  link.href = mailtoLink;
-                  link.style.display = 'none';
-                  document.body.appendChild(link);
-                  link.click();
-                  document.body.removeChild(link);
-                }}
               >
                 <span className="link-icon">✉</span>
                 <span>Contact Me</span>
-              </button>
+              </a>
               <a href="/John_Cheung_Resume.pdf" className="contact-link" target="_blank" rel="noopener noreferrer">
                 <span className="link-icon">📄</span>
                 <span>View Resume</span>
