@@ -84,9 +84,11 @@ export const PortfolioNav = () => {
                 href="mailto:john.cheung75@gmail.com" 
                 className="nav-menu-link" 
                 onClick={(e) => {
-                  e.preventDefault();
-                  setMenuOpen(false);
-                  window.location.href = 'mailto:john.cheung75@gmail.com';
+                  // Let the href work naturally - don't prevent default
+                  // Close menu after a short delay to allow mailto to trigger
+                  setTimeout(() => {
+                    setMenuOpen(false);
+                  }, 100);
                 }}
               >
                 Contact Me

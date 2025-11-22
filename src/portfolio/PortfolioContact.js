@@ -34,10 +34,6 @@ export const PortfolioContact = () => {
               <a 
                 href="mailto:john.cheung75@gmail.com" 
                 className="contact-link"
-                onClick={(e) => {
-                  e.preventDefault();
-                  window.location.href = 'mailto:john.cheung75@gmail.com';
-                }}
               >
                 <span className="link-icon">✉</span>
                 <span>Contact Me</span>
