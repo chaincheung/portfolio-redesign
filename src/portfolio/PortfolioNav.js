@@ -84,11 +84,9 @@ export const PortfolioNav = () => {
                 href="mailto:john.cheung75@gmail.com" 
                 className="nav-menu-link" 
                 onClick={(e) => {
+                  e.preventDefault();
                   setMenuOpen(false);
-                  // Ensure mailto opens email client
-                  setTimeout(() => {
-                    window.location.href = 'mailto:john.cheung75@gmail.com';
-                  }, 0);
+                  window.location.href = 'mailto:john.cheung75@gmail.com';
                 }}
               >
                 Contact Me

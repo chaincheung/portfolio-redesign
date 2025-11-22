@@ -35,10 +35,8 @@ export const PortfolioContact = () => {
                 href="mailto:john.cheung75@gmail.com" 
                 className="contact-link"
                 onClick={(e) => {
-                  // Ensure mailto opens email client
-                  setTimeout(() => {
-                    window.location.href = 'mailto:john.cheung75@gmail.com';
-                  }, 0);
+                  e.preventDefault();
+                  window.location.href = 'mailto:john.cheung75@gmail.com';
                 }}
               >
                 <span className="link-icon">✉</span>
