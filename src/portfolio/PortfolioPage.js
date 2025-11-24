@@ -7,6 +7,7 @@ import { PortfolioContact } from "./PortfolioContact";
 import { PortfolioNav } from "./PortfolioNav";
 import "./portfolio.css";
 
+// Portfolio page component
 export const PortfolioPage = () => {
   return (
     <div className="portfolio-page">
