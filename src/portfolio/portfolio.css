@@ -336,22 +336,21 @@ html {
   font-size: 1rem;
   font-weight: 600;
   border-radius: 50px;
-  border: none;
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
   display: inline-block;
   box-sizing: border-box;
-  min-height: 52px;
-  line-height: 1.2;
-  vertical-align: middle;
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .btn-primary {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: #ffffff;
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-  border: 2px solid transparent;
+  border: none;
 }
 
 .btn-primary:hover {
@@ -363,6 +362,7 @@ html {
   background: transparent;
   color: #ffffff;
   border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: calc(1rem - 2px) calc(2rem - 2px);
 }
 
 .btn-secondary:hover {
