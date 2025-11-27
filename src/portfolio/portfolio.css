@@ -211,7 +211,7 @@ html {
   z-index: 0;
   overflow: hidden;
   background-size: cover;
-  background-position: center;
+  background-position: right center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   filter: brightness(1.2);
@@ -2794,11 +2794,11 @@ html {
 
 /* Fix for mobile devices - ensure hero and best design images are visible at 375px */
 @media (max-width: 375px) {
-  /* Fix hero background image visibility on mobile */
+  /* Fix hero background image visibility on mobile - hide person */
   .hero-background {
     background-attachment: scroll !important;
     background-size: cover;
-    background-position: center center;
+    background-position: left center;
     position: absolute;
     top: 0;
     left: 0;
@@ -2883,9 +2883,11 @@ html {
 
 /* Additional mobile fixes for background images */
 @media (max-width: 768px) {
-  /* Fix background-attachment on tablets and mobile */
+  /* Fix background-attachment on tablets and mobile - hide person */
   .hero-background {
     background-attachment: scroll !important;
+    background-size: cover;
+    background-position: left center;
   }
 
   .portfolio-best-design {
