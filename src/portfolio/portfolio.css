@@ -536,8 +536,8 @@ html {
   left: 0;
   width: 100%;
   opacity: 0;
-  transform: translateX(50px);
-  transition: all 0.6s ease;
+  transform: translateY(20px) scale(0.98);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   visibility: hidden;
   pointer-events: none;
 }
@@ -545,7 +545,7 @@ html {
 .process-slide.active {
   position: relative;
   opacity: 1;
-  transform: translateX(0);
+  transform: translateY(0) scale(1);
   visibility: visible;
   pointer-events: auto;
 }
