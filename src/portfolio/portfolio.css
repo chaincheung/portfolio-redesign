@@ -414,7 +414,7 @@ html {
   padding: 8rem 2rem;
   position: relative;
   background-size: cover;
-  background-position: center;
+  background-position: 50% 50%;
   background-repeat: no-repeat;
   background-attachment: fixed;
   min-height: 60vh;
@@ -2007,6 +2007,12 @@ html {
     display: none;
   }
 
+  .portfolio-best-design {
+    background-position: center center;
+    background-attachment: scroll;
+    padding: 6rem 1.5rem;
+  }
+
   .stakeholder-grid {
     grid-template-columns: 1fr;
   }
@@ -2686,6 +2692,14 @@ html {
 
   .hero-title {
     font-size: 2rem;
+  }
+
+  .portfolio-best-design {
+    background-size: cover;
+    background-position: 50% 40%;
+    background-attachment: scroll;
+    padding: 6rem 1rem;
+    min-height: 50vh;
   }
 
   .project-title {
