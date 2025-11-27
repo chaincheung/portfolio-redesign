@@ -510,18 +510,14 @@ html {
 
 .process-slider-wrapper {
   position: relative;
-  display: flex;
-  align-items: center;
-  gap: 2rem;
   margin: 3rem 0;
 }
 
 .process-slider {
-  flex: 1;
   position: relative;
   overflow: hidden;
   min-height: 250px;
-  min-width: 0;
+  width: 100%;
   touch-action: pan-y;
   -webkit-overflow-scrolling: touch;
 }
@@ -547,11 +543,7 @@ html {
 }
 
 .process-slide-content {
-  display: flex;
-  align-items: flex-start;
-  gap: 2rem;
   padding: 2rem;
-  min-width: 0;
 }
 
 .process-arrow {
@@ -560,12 +552,22 @@ html {
   border-radius: 50%;
   width: 60px;
   height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
+  line-height: 60px;
   cursor: pointer;
   transition: all 0.3s ease;
   z-index: 10;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.process-arrow-left {
+  left: 0;
+}
+
+.process-arrow-right {
+  right: 0;
 }
 
 .process-arrow:hover {
@@ -625,15 +627,13 @@ html {
 }
 
 .process-icon-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 60px;
   height: 60px;
-  min-width: 60px;
   background: transparent;
   border-radius: 12px;
   padding: 12px;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 .process-icon {
@@ -658,8 +658,6 @@ html {
 }
 
 .process-content {
-  flex: 1;
-  min-width: 0;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
@@ -2732,17 +2730,14 @@ html {
   }
 
   .process-slide-content {
-    flex-direction: column;
-    align-items: center;
     text-align: center;
-    gap: 1.5rem;
     padding: 1.5rem 1rem;
   }
 
   .process-icon-wrapper {
     width: 100%;
-    display: flex;
-    justify-content: center;
+    text-align: center;
+    margin: 0 auto 1.5rem;
   }
 
   .process-content {
