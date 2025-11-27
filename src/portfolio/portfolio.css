@@ -326,7 +326,7 @@ html {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -1427,6 +1427,10 @@ html {
   .hero-content {
     grid-template-columns: 1fr;
     text-align: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
   }
 
   .hero-title {
