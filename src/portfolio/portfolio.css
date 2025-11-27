@@ -343,7 +343,7 @@ html {
   display: inline-block;
   box-sizing: border-box;
   min-height: 52px;
-  line-height: 1;
+  line-height: 1.2;
   vertical-align: middle;
 }
 
@@ -351,6 +351,7 @@ html {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: #ffffff;
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  border: 2px solid transparent;
 }
 
 .btn-primary:hover {
@@ -362,7 +363,6 @@ html {
   background: transparent;
   color: #ffffff;
   border: 2px solid rgba(255, 255, 255, 0.3);
-  box-sizing: border-box;
 }
 
 .btn-secondary:hover {
@@ -1392,6 +1392,10 @@ html {
   text-decoration: none;
   font-size: 1rem;
   font-weight: 500;
+  box-sizing: border-box;
+  min-height: 52px;
+  line-height: 1.2;
+  vertical-align: middle;
   border-radius: 50px;
   transition: all 0.3s ease;
   font-family: inherit;
