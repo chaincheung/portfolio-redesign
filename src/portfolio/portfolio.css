@@ -211,7 +211,7 @@ html {
   z-index: 0;
   overflow: hidden;
   background-size: cover;
-  background-position: right center;
+  background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   filter: brightness(1.2);
@@ -327,6 +327,7 @@ html {
   gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 }
 
 .btn-primary,
@@ -413,7 +414,7 @@ html {
   padding: 8rem 2rem;
   position: relative;
   background-size: cover;
-  background-position: center center;
+  background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   min-height: 60vh;
@@ -439,8 +440,6 @@ html {
   justify-content: center;
   align-items: center;
   min-height: 60vh;
-  width: 100%;
-  text-align: center;
 }
 
 .best-design-content {
@@ -521,20 +520,30 @@ html {
   flex: 1;
   position: relative;
   overflow: hidden;
-  min-height: 200px;
+  min-height: 250px;
+  min-width: 0;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
 }
 
 .process-slide {
-  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   opacity: 0;
   transform: translateX(50px);
   transition: all 0.6s ease;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .process-slide.active {
-  display: block;
+  position: relative;
   opacity: 1;
   transform: translateX(0);
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .process-slide-content {
@@ -542,10 +551,11 @@ html {
   align-items: flex-start;
   gap: 2rem;
   padding: 2rem;
+  min-width: 0;
 }
 
 .process-arrow {
-  background: rgba(255, 255, 255, 0.1);
+  background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   width: 60px;
@@ -559,7 +569,7 @@ html {
 }
 
 .process-arrow:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: transparent;
   border-color: rgba(255, 255, 255, 0.4);
   transform: scale(1.1);
 }
@@ -621,7 +631,7 @@ html {
   width: 60px;
   height: 60px;
   min-width: 60px;
-  background: rgba(255, 255, 255, 0.05);
+  background: transparent;
   border-radius: 12px;
   padding: 12px;
 }
@@ -650,8 +660,8 @@ html {
 .process-content {
   flex: 1;
   min-width: 0;
-  word-wrap: break-word;
   overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .process-title {
@@ -659,6 +669,9 @@ html {
   font-weight: 600;
   margin: 0 0 1rem 0;
   color: #ffffff;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .process-description {
@@ -666,6 +679,8 @@ html {
   color: #aaa;
   line-height: 1.6;
   margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .process-connector {
@@ -1403,7 +1418,6 @@ html {
   .hero-content {
     grid-template-columns: 1fr;
     text-align: center;
-    align-items: center;
   }
 
   .hero-title {
@@ -1989,6 +2003,10 @@ html {
 
 /* Responsive adjustments for new sections */
 @media (max-width: 768px) {
+  .process-arrow {
+    display: none;
+  }
+
   .stakeholder-grid {
     grid-template-columns: 1fr;
   }
@@ -2572,56 +2590,6 @@ html {
     max-width: 100%;
   }
 
-  /* Process Slider Mobile Fixes */
-  .process-slider-wrapper {
-    gap: 1rem;
-    margin: 2rem 0;
-  }
-
-  .process-slider {
-    min-height: auto;
-  }
-
-  .process-slide-content {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1.5rem;
-    padding: 1.5rem 1rem;
-  }
-
-  .process-icon-wrapper {
-    width: 60px;
-    height: 60px;
-    min-width: 60px;
-  }
-
-  .process-content {
-    width: 100%;
-    text-align: center;
-  }
-
-  .process-title {
-    font-size: 1.5rem;
-    margin: 0 0 0.75rem 0;
-  }
-
-  .process-description {
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-
-  .process-arrow {
-    width: 50px;
-    height: 50px;
-    flex-shrink: 0;
-  }
-
-  .arrow-icon {
-    width: 25px;
-    height: 25px;
-  }
-
   /* Contact Section Responsive */
   .portfolio-contact {
     padding: 6rem 1.5rem 3rem;
@@ -2740,6 +2708,48 @@ html {
     padding: 5rem 1rem;
   }
 
+  .process-slider-wrapper {
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .process-arrow {
+    display: none;
+  }
+
+  .process-slide-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .process-icon-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .process-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .process-title {
+    font-size: 1.5rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .process-description {
+    font-size: 1rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.7;
+  }
+
   .portfolio-contact {
     padding: 5rem 1rem 2rem;
   }
@@ -2789,109 +2799,6 @@ html {
 
   .nav-menu-logo-img {
     height: 40px;
-  }
-}
-
-/* Fix for mobile devices - ensure hero and best design images are visible at 375px */
-@media (max-width: 375px) {
-  /* Fix hero background image visibility on mobile - hide person */
-  .hero-background {
-    background-attachment: scroll !important;
-    background-size: cover;
-    background-position: left center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  /* Fix best design background image visibility on mobile */
-  .portfolio-best-design {
-    background-attachment: scroll !important;
-    background-size: cover;
-    background-position: center center;
-    min-height: 50vh;
-  }
-
-  /* Ensure hero section displays properly */
-  .portfolio-hero {
-    min-height: 100vh;
-    overflow: hidden;
-    position: relative;
-  }
-
-  /* Ensure best design section displays properly */
-  .best-design-container {
-    min-height: 50vh;
-  }
-
-  /* Process Slider 375px Fixes */
-  .process-slider-wrapper {
-    gap: 0.75rem;
-    margin: 1.5rem 0;
-  }
-
-  .process-slide-content {
-    padding: 1rem 0.75rem;
-    gap: 1rem;
-  }
-
-  .process-icon-wrapper {
-    width: 50px;
-    height: 50px;
-    min-width: 50px;
-  }
-
-  .process-title {
-    font-size: 1.25rem;
-    line-height: 1.3;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-  }
-
-  .process-description {
-    font-size: 0.9rem;
-    line-height: 1.4;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-  }
-
-  .process-arrow {
-    width: 45px;
-    height: 45px;
-  }
-
-  .arrow-icon {
-    width: 20px;
-    height: 20px;
-  }
-
-  .process-slider {
-    min-height: auto;
-    overflow: visible;
-  }
-
-  .process-content {
-    width: 100%;
-    max-width: 100%;
-    overflow: visible;
-  }
-}
-
-/* Additional mobile fixes for background images */
-@media (max-width: 768px) {
-  /* Fix background-attachment on tablets and mobile - hide person */
-  .hero-background {
-    background-attachment: scroll !important;
-    background-size: cover;
-    background-position: left center;
-  }
-
-  .portfolio-best-design {
-    background-attachment: scroll !important;
   }
 }
 

@@ -1,35 +1,30 @@
 # Portfolio Redesign
 
-A modern, clean, and dynamic portfolio website for John Cheung - UX/UI Design Strategist.
+A modern, mobile-first portfolio redesign with smooth animations and responsive design.
 
 ## Features
 
-- 🎨 Modern dark theme with gradient accents
+- 📱 Mobile-first responsive design
 - ✨ Smooth scroll animations
-- 📱 Fully responsive design
-- 🎯 Interactive hover effects
-- 🚀 Performance optimized
+- 🎨 Modern gradient design
+- ♿ Accessibility optimized
+- 🌙 Dark mode support
 
 ## Getting Started
 
-### Prerequisites
+### Install Dependencies
 
-- Node.js (v14 or higher)
-- npm or yarn
-
-### Installation
-
-1. Install dependencies:
 ```bash
 npm install
 ```
 
-2. Start the development server:
+### Run Development Server
+
 ```bash
-npm start
+npm run dev
 ```
 
-3. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The app will open at `http://localhost:3000`
 
 ### Build for Production
 
@@ -37,38 +32,14 @@ npm start
 npm run build
 ```
 
-This creates an optimized production build in the `build` folder.
+### Preview Production Build
 
-## Project Structure
-
-```
-portfolio_redesign/
-├── public/
-│   └── index.html
-├── src/
-│   ├── portfolio/
-│   │   ├── PortfolioPage.js
-│   │   ├── PortfolioNav.js
-│   │   ├── PortfolioHero.js
-│   │   ├── PortfolioProcess.js
-│   │   ├── PortfolioExperiences.js
-│   │   ├── PortfolioContact.js
-│   │   └── portfolio.css
-│   ├── App.js
-│   ├── index.js
-│   └── index.css
-├── package.json
-└── README.md
+```bash
+npm run preview
 ```
 
-## Technologies Used
+## Tech Stack
 
 - React 18
-- React Router DOM
-- CSS3 (with animations and gradients)
-- Intersection Observer API
-
-## License
-
-© 2024 John Cheung. All rights reserved.
-
+- Vite
+- CSS3 (Mobile-first responsive design)

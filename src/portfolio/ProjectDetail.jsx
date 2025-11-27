@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { PortfolioNav } from "./PortfolioNav";
+import { PortfolioNav } from "./PortfolioNav.jsx";
 import "./portfolio.css";
 
 export const ProjectDetail = () => {

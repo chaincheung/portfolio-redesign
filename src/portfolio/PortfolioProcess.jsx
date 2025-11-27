@@ -3,7 +3,14 @@ import React, { useEffect, useRef, useState } from "react";
 export const PortfolioProcess = () => {
   const [visibleItems, setVisibleItems] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [sliderHeight, setSliderHeight] = useState(250);
   const sectionRef = useRef(null);
+  const sliderRef = useRef(null);
+  const slideRefs = useRef([]);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+  const touchStartY = useRef(0);
+  const touchEndY = useRef(0);
 
   const processSteps = [
     {
@@ -46,6 +53,91 @@ export const PortfolioProcess = () => {
     setCurrentSlide((prev) => (prev - 1 + processSteps.length) % processSteps.length);
   };
 
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+    touchEndX.current = 0;
+    touchEndY.current = 0;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+    touchEndY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    
+    const distanceX = touchStartX.current - touchEndX.current;
+    const distanceY = touchStartY.current - touchEndY.current;
+    const minSwipeDistance = 50; // Minimum distance for a swipe
+    
+    // Only trigger if it's a horizontal swipe (horizontal distance > vertical distance)
+    if (Math.abs(distanceX) > minSwipeDistance && Math.abs(distanceX) > Math.abs(distanceY)) {
+      if (distanceX > 0) {
+        // Swiped left - go to next slide
+        nextSlide();
+      } else {
+        // Swiped right - go to previous slide
+        prevSlide();
+      }
+    }
+    
+    // Reset touch positions
+    touchStartX.current = 0;
+    touchEndX.current = 0;
+    touchStartY.current = 0;
+    touchEndY.current = 0;
+  };
+
+  // Calculate maximum height from all slides on mount and resize
+  useEffect(() => {
+    const calculateMaxHeight = () => {
+      let maxHeight = 250; // Default minimum
+      
+      slideRefs.current.forEach((slideRef) => {
+        if (slideRef) {
+          const content = slideRef.querySelector('.process-slide-content');
+          if (content) {
+            // Temporarily show to measure
+            const originalStyles = {
+              position: slideRef.style.position,
+              visibility: slideRef.style.visibility,
+              opacity: slideRef.style.opacity,
+              display: slideRef.style.display
+            };
+            
+            slideRef.style.position = 'static';
+            slideRef.style.visibility = 'visible';
+            slideRef.style.opacity = '1';
+            slideRef.style.display = 'block';
+            
+            const height = content.offsetHeight;
+            if (height > maxHeight) {
+              maxHeight = height;
+            }
+            
+            // Restore
+            Object.keys(originalStyles).forEach(key => {
+              slideRef.style[key] = originalStyles[key] || '';
+            });
+          }
+        }
+      });
+      
+      setSliderHeight(maxHeight);
+    };
+
+    // Wait for all slides to render
+    const timer = setTimeout(calculateMaxHeight, 200);
+    window.addEventListener('resize', calculateMaxHeight);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('resize', calculateMaxHeight);
+    };
+  }, [processSteps.length]);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -82,10 +174,18 @@ export const PortfolioProcess = () => {
           <button className="process-arrow process-arrow-left" onClick={prevSlide}>
             <img src="/images/scraped/arrow-left.png" alt="Previous" className="arrow-icon" />
           </button>
-          <div className="process-slider">
+          <div 
+            className="process-slider"
+            ref={sliderRef}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            style={{ height: `${sliderHeight}px` }}
+          >
             {processSteps.map((step, index) => (
               <div
                 key={index}
+                ref={(el) => (slideRefs.current[index] = el)}
                 className={`process-slide ${index === currentSlide ? "active" : ""} ${visibleItems.includes(index) ? "visible" : ""}`}
                 data-index={index}
               >
