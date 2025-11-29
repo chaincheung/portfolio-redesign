@@ -752,6 +752,7 @@ html {
 
 .experience-image {
   width: 100%;
+  max-width: 100%;
   height: auto;
   display: block;
   transition: transform 0.4s ease;
@@ -949,7 +950,7 @@ html {
   height: 60vh;
   min-height: 500px;
   margin-bottom: 4rem;
-  border-radius: 20px;
+  border-radius: 0;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   background-size: cover;
@@ -977,7 +978,7 @@ html {
   height: 60vh;
   min-height: 500px;
   margin-bottom: 4rem;
-  border-radius: 20px;
+  border-radius: 0;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   position: relative;
@@ -985,6 +986,7 @@ html {
 
 .project-hero-image-img {
   width: 100%;
+  max-width: 100%;
   height: 100%;
   display: block;
   object-fit: cover;
@@ -1172,7 +1174,7 @@ html {
 
 .section-image-wrapper {
   margin: 2rem 0;
-  border-radius: 12px;
+  border-radius: 0;
   overflow: hidden;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   background: #ffffff;
@@ -1190,6 +1192,7 @@ html {
 
 .section-image {
   width: 100%;
+  max-width: 100%;
   height: auto;
   display: block;
   background: #ffffff;
@@ -1365,7 +1368,7 @@ html {
   max-width: 100%;
   height: auto;
   display: block;
-  border-radius: 12px;
+  border-radius: 0;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 }
 
@@ -1602,6 +1605,18 @@ html {
 
   .section-image-wrapper {
     margin-top: 0;
+    padding: 1rem;
+  }
+
+  .section-image {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .user-flow-image-audiyo {
+    width: 100%;
+    max-width: 100%;
+    padding: 1rem;
   }
 
   .experience-container {
@@ -1960,8 +1975,9 @@ html {
 
 .wireframe-image {
   width: 100%;
+  max-width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 0;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -2019,8 +2035,9 @@ html {
 
 .ab-test-image {
   width: 100%;
+  max-width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 0;
   border: 1px solid rgba(255, 255, 255, 0.1);
   margin-bottom: 1rem;
 }
@@ -2137,10 +2154,11 @@ html {
 }
 
 .competitive-image-audiyo {
-  width: 300px;
+  width: 100%;
+  max-width: 100%;
   height: auto;
   margin-bottom: 1rem;
-  border-radius: 8px;
+  border-radius: 0;
   background: #ffffff;
   padding: 1rem;
 }
@@ -2173,8 +2191,9 @@ html {
 
 .survey-image {
   width: 100%;
+  max-width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 0;
   background: #ffffff;
   padding: 1rem;
 }
@@ -2183,13 +2202,14 @@ html {
   margin: 2rem 0;
   background: #ffffff;
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: 0;
 }
 
 .chart-image {
   width: 100%;
+  max-width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 0;
   background: #ffffff;
 }
 
@@ -2214,9 +2234,9 @@ html {
 
 .user-flow-image-audiyo {
   width: 100%;
-  max-width: 400px;
+  max-width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 0;
   margin-bottom: 1rem;
   background: #ffffff;
   padding: 1rem;
@@ -2301,8 +2321,9 @@ html {
 
 .wireframe-iteration-image-audiyo {
   width: 100%;
+  max-width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 0;
   margin-bottom: 1rem;
   background: #ffffff;
   padding: 1rem;
@@ -2328,8 +2349,9 @@ html {
 
 .wireframe-image-audiyo {
   width: 100%;
+  max-width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 0;
 }
 
 @media (max-width: 768px) {
@@ -2425,8 +2447,9 @@ html {
 
 .iteration-image {
   width: 100%;
+  max-width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 0;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
@@ -2621,6 +2644,18 @@ html {
   /* Reduce margin between text and images to 0rem total on mobile */
   .section-image-wrapper {
     margin-top: 0;
+    padding: 1rem;
+  }
+
+  .section-image {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .user-flow-image-audiyo {
+    width: 100%;
+    max-width: 100%;
+    padding: 1rem;
   }
 
   /* Process Responsive */

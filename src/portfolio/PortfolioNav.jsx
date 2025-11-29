@@ -48,7 +48,13 @@ export const PortfolioNav = () => {
   return (
     <nav className={`portfolio-nav ${scrolled ? "scrolled" : ""} ${!navVisible ? "nav-hidden" : ""}`}>
       <div className="nav-container">
-        <Link to="/" className="nav-logo">
+        <Link 
+          to="/" 
+          className="nav-logo"
+          onClick={() => {
+            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+          }}
+        >
           <img src={jcLogo} alt="John Cheung" className="nav-logo-img" />
         </Link>
         <button 
@@ -69,7 +75,14 @@ export const PortfolioNav = () => {
           <div className="nav-menu-content">
             <div className="nav-menu-section">
               <div className="nav-menu-section-title">Menu</div>
-              <Link to="/" className="nav-menu-link" onClick={() => setMenuOpen(false)}>
+              <Link 
+                to="/" 
+                className="nav-menu-link" 
+                onClick={() => {
+                  window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                  setMenuOpen(false);
+                }}
+              >
                 Home
               </Link>
               <a 
@@ -98,7 +111,10 @@ export const PortfolioNav = () => {
                   key={project.path}
                   to={project.path}
                   className="nav-menu-link"
-                  onClick={() => setMenuOpen(false)}
+                  onClick={() => {
+                    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                    setMenuOpen(false);
+                  }}
                 >
                   {project.name}
                 </Link>

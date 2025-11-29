@@ -91,11 +91,23 @@ export const PortfolioExperiences = () => {
               className={`experience-container ${visibleCards.includes(index) ? "visible" : ""}`}
               data-index={index}
             >
-              <Link to={experience.link} className="experience-image-link">
+              <Link 
+                to={experience.link} 
+                className="experience-image-link"
+                onClick={() => {
+                  window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                }}
+              >
                 <img src={experience.image} alt={experience.title} className="experience-image" />
               </Link>
               <div className="experience-info-block">
-                <Link to={experience.link} className="experience-title-link">
+                <Link 
+                  to={experience.link} 
+                  className="experience-title-link"
+                  onClick={() => {
+                    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                  }}
+                >
                   {experience.title}
                 </Link>
                 <h4 className="experience-subtitle">{experience.subtitle}</h4>
