@@ -1546,13 +1546,23 @@ export const ProjectDetail = () => {
             <p className="project-subtitle">{project.subtitle}</p>
           </div>
 
-          <div className="project-hero-image-wrapper">
-            <img 
-              src={project.heroImage} 
-              alt={project.title}
-              className={`project-hero-image-img ${projectSlug === "relsci-radar" ? "radar-hero" : ""}`}
-            />
-          </div>
+          {project.heroImage && (
+            <div className="project-hero-image-wrapper">
+              <img 
+                src={project.heroImage} 
+                alt={project.title}
+                className={`project-hero-image-img ${projectSlug === "relsci-radar" ? "radar-hero" : ""}`}
+                loading="eager"
+                onError={(e) => {
+                  console.error('Hero image failed to load:', project.heroImage);
+                  e.target.style.display = 'none';
+                }}
+                onLoad={() => {
+                  console.log('Hero image loaded successfully:', project.heroImage);
+                }}
+              />
+            </div>
+          )}
 
           <div className="project-intro">
             <p className="project-description">{project.description}</p>
