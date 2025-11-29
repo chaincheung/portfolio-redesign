@@ -40,3 +40,6 @@ If port 3000 is busy, the server will show an error. You can:
 - Kill the process using port 3000 (command above)
 - Or change the port in `vite.config.js` to 3001 or 5173
 
+
+
+

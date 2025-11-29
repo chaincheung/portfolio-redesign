@@ -35,3 +35,6 @@ If you see errors in the terminal, they will tell you what's wrong. Common issue
 ## 6. Try a different port
 If port 3000 is blocked, edit vite.config.js and change port to 3001 or 5173
 
+
+
+

@@ -1595,6 +1595,15 @@ html {
     padding: 1.5rem;
   }
 
+  /* Reduce margin between text and images to 1rem total on mobile */
+  .section-text {
+    margin-bottom: 1rem;
+  }
+
+  .section-image-wrapper {
+    margin-top: 0;
+  }
+
   .experience-container {
     margin-bottom: 3rem;
   }
@@ -2606,6 +2615,12 @@ html {
 
   .section-text {
     font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Reduce margin between text and images to 1rem total on mobile */
+  .section-image-wrapper {
+    margin-top: 0;
   }
 
   /* Process Responsive */
