@@ -1228,6 +1228,29 @@ html {
   padding: 1.1rem;
 }
 
+/* Remove white borders from all images on RelationshipScience page */
+.portfolio-page[data-project="relationshipscience-com"] .section-image-wrapper {
+  background: transparent;
+  padding: 0;
+}
+
+.portfolio-page[data-project="relationshipscience-com"] .section-image {
+  background: transparent;
+}
+
+/* Add white background for user-flow and sitemap images on RelationshipScience page */
+.portfolio-page[data-project="relationshipscience-com"] .section-image-wrapper:has(img[src*="user-flow"]),
+.portfolio-page[data-project="relationshipscience-com"] .section-image-wrapper:has(img[src*="sitemap"]),
+.portfolio-page[data-project="relationshipscience-com"] .section-image[src*="user-flow"],
+.portfolio-page[data-project="relationshipscience-com"] .section-image[src*="sitemap"] {
+  background: #ffffff;
+}
+
+.portfolio-page[data-project="relationshipscience-com"] .section-image-wrapper:has(img[src*="user-flow"]),
+.portfolio-page[data-project="relationshipscience-com"] .section-image-wrapper:has(img[src*="sitemap"]) {
+  padding: 1rem;
+}
+
 /* Remove white background from user-persona-bg image on RelationshipScience page */
 .portfolio-page[data-project="relationshipscience-com"] .section-image-wrapper:has(img[src*="user-persona-bg"]),
 .portfolio-page[data-project="relationshipscience-com"] .section-image[src*="user-persona-bg"] {
@@ -1242,6 +1265,28 @@ html {
 .portfolio-page[data-project="relationshipscience-com"] .section-image-wrapper:has(img[src*="profile"]) {
   justify-self: start;
   align-self: start;
+}
+
+/* Ensure homepage-final and profile-wf have same width */
+.portfolio-page[data-project="relationshipscience-com"] .section-image-wrapper:has(img[src*="homepage-final"]),
+.portfolio-page[data-project="relationshipscience-com"] .section-image-wrapper:has(img[src*="profile-wf"]) {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.portfolio-page[data-project="relationshipscience-com"] .section-image[src*="homepage-final"],
+.portfolio-page[data-project="relationshipscience-com"] .section-image[src*="profile-wf"] {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  box-sizing: border-box;
+}
+
+/* Override justify-self for profile-wf to ensure same width as homepage-final */
+.portfolio-page[data-project="relationshipscience-com"] .section-image-wrapper:has(img[src*="profile-wf"]) {
+  justify-self: stretch;
+  width: 100%;
 }
 
 .section-annotations {

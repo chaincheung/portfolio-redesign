@@ -173,9 +173,9 @@ export const ProjectDetail = () => {
           title: "Stakeholder Interviews",
           items: [
             { title: "WHAT? (Problems and Challenges)", content: "Offer the right amount of actionable data so as to not cannibalize the Pro & Enterprise products.", bgColor: "white", textColor: "black" },
-            { title: "WHY? (Purpose)", content: "Unlock the hidden potential of your relationships in your network.", bgColor: "dark", textColor: "white" },
+            { title: "WHY? (Purpose)", content: "Unlock the hidden potential of your relationships in your network.", bgColor: "white", textColor: "black" },
             { title: "WHO? (Target Market)", content: "Wide range of professionals who utilize connections to achieve business goals.", bgColor: "light", textColor: "black" },
-            { title: "Short Term Goals", content: "Increase growth with the Professional product", bgColor: "dark", textColor: "white" },
+            { title: "Short Term Goals", content: "Increase growth with the Professional product", bgColor: "white", textColor: "black" },
             { title: "Long Term Goals", content: "Increase growth of the business with additional products", bgColor: "light", textColor: "black" },
             { title: "How To Achieve Those Goals?", content: "Providing products that are essential in end user work flows", bgColor: "light", textColor: "black" }
           ]
