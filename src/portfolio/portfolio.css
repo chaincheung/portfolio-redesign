@@ -1248,7 +1248,7 @@ html {
 
 .portfolio-page[data-project="relationshipscience-com"] .section-image-wrapper:has(img[src*="user-flow"]),
 .portfolio-page[data-project="relationshipscience-com"] .section-image-wrapper:has(img[src*="sitemap"]) {
-  padding: 1rem;
+  padding: 2rem;
 }
 
 /* Remove white background from user-persona-bg image on RelationshipScience page */
